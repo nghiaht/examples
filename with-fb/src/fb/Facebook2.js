@@ -22,7 +22,22 @@ export class Facebook2 extends Component {
       js.src = "https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js";
       fjs.parentNode.insertBefore(js, fjs);
     })(document, "script", "facebook-jssdk");
+
+    var interval = window.setInterval(() => {
+      console.log("interval")
+      if (window.FB && window.FB.XFBML) {
+        window.clearInterval(interval);
+        interval = null;
+        this.reload();
+      }
+    }, 500);
   }
+
+  reload() {  
+    console.log("reload")
+    window.FB.XFBML.parse();
+  }
+  
 
   render() {
     return (
