@@ -18,7 +18,7 @@ export function Facebook3() {
 
       {/* https://nextjs.org/docs/basic-features/script */}
       <Script
-      id="facebook-jssdk"
+        // id="facebook-jssdk"  // id to make "cleanup" worked
         src="https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js"
         strategy="lazyOnload"
       />
