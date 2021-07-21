@@ -33,15 +33,14 @@ export function Facebook1() {
     console.log("Facebook1")
     init();
 
-
-    var interval = window.setInterval(() => {
-      console.log("Facebook1 interval")
-      if (window.FB && window.FB.XFBML) {
-        window.clearInterval(interval);
-        interval = null;
-        reload();
-      }
-    }, 500);
+    // var interval = window.setInterval(() => {
+    //   console.log("Facebook1 interval")
+    //   if (window.FB && window.FB.XFBML) {
+    //     window.clearInterval(interval);
+    //     interval = null;
+    //     reload();
+    //   }
+    // }, 500);
 
     return function cleanup() {
       console.log("cleanup");
@@ -49,8 +48,13 @@ export function Facebook1() {
         var target =  d.getElementById(id);
         if (target) {
           target.parentNode.removeChild(target);
+          
         }        
       })(document, "facebook-jssdk");
+
+      if (window.FB) {
+        delete window.FB;
+      }
     }
   }, []);
   return (
