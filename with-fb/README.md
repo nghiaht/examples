@@ -11,3 +11,7 @@ Introduce few components for initializing FB SDK and cleaning up when leave (unm
 1. `src/pages/fb1.js` - Function based example
 2. `src/pages/fb2.js` - Class based example
 3. TODO: Try `next/script` (https://nextjs.org/docs/basic-features/script)
+
+## Notes
+
+Remember to add your domain to whitelist in Chat Plugin configuration page. `localhost` may not work, just use `ngrok`, or deploy to a live https domain, or something else and whitelist them.
