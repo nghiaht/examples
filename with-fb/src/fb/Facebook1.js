@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { clearInterval } from "timers";
 
 function init() {
   var chatbox = document.getElementById("fb-customer-chat");
@@ -43,6 +42,16 @@ export function Facebook1() {
         reload();
       }
     }, 500);
+
+    return function cleanup() {
+      console.log("cleanup");
+      (function (d, id) {
+        var target =  d.getElementById(id);
+        if (target) {
+          target.parentNode.removeChild(target);
+        }        
+      })(document, "facebook-jssdk");
+    }
   }, []);
   return (
     <div>
