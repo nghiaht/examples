@@ -1,7 +1,7 @@
-import { useEffect } from "react";
+import { Component } from "react";
 
-export function Facebook1() {
-  useEffect(() => {
+export class Facebook2 extends Component {
+  componentDidMount() {
     var chatbox = document.getElementById("fb-customer-chat");
     chatbox.setAttribute("page_id", "1011747472244365");
     chatbox.setAttribute("attribution", "biz_inbox");
@@ -22,12 +22,15 @@ export function Facebook1() {
       js.src = "https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js";
       fjs.parentNode.insertBefore(js, fjs);
     })(document, "script", "facebook-jssdk");
-  }, []);
-  return (
-    <div>
-      <div id="fb-root"></div>
+  }
 
-      <div id="fb-customer-chat" className="fb-customerchat"></div>
-    </div>
-  );
+  render() {
+    return (
+      <div>
+        <div id="fb-root"></div>
+
+        <div id="fb-customer-chat" className="fb-customerchat"></div>
+      </div>
+    );
+  }
 }

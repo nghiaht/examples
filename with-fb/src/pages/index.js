@@ -1,7 +1,22 @@
-import { Facebook1 } from "../fb/Facebook1"
-export default function HomePage() {
-    return <div>Home
+import Link from "next/link";
 
-        <Facebook1/>
+export default function HomePage() {
+  return (
+    <div>
+      <h1>Home</h1>
+
+      <ul>
+        <li>
+          <Link href="/fb1">
+            <a>Facebook1 Example</a>
+          </Link>
+        </li>
+        <li>
+          <Link href="/fb2">
+            <a>Facebook2 Example</a>
+          </Link>
+        </li>
+      </ul>
     </div>
+  );
 }
