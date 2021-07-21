@@ -25,16 +25,19 @@ function init() {
 }
 
 function reload() {  
-  FB.XFBML.parse();
+  console.log("reload")
+  window.FB.XFBML.parse();
 }
 
 export function Facebook1() {
   useEffect(() => {
     console.log("Facebook1")
     init();
+
+
     var interval = window.setInterval(() => {
       console.log("Facebook1 interval")
-      if (window.FB) {
+      if (window.FB && window.FB.XFBML) {
         window.clearInterval(interval);
         interval = null;
         reload();
