@@ -28,8 +28,10 @@ function init() {
 
 export function Facebook1() {
   useEffect(() => {
+    console.log("Facebook1")
     loadScript();
     var interval = window.setInterval(() => {
+      console.log("Facebook1 interval")
       if (window.FB) {
         window.clearInterval(interval);
         interval = null;
