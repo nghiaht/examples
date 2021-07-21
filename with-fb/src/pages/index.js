@@ -16,6 +16,12 @@ export default function HomePage() {
             <a>Facebook2 Example</a>
           </Link>
         </li>
+
+        <li>
+          <Link href="/fb3">
+            <a>Facebook3 Example</a>
+          </Link>
+        </li>
       </ul>
     </div>
   );
