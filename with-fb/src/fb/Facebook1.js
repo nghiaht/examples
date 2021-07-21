@@ -1,7 +1,18 @@
 import { useEffect } from "react";
 import { clearInterval } from "timers";
 
-function loadScript() {
+function init() {
+  var chatbox = document.getElementById("fb-customer-chat");
+  chatbox.setAttribute("page_id", "1011747472244365");
+  chatbox.setAttribute("attribution", "biz_inbox");
+
+  window.fbAsyncInit = function () {
+    FB.init({
+      xfbml: true,
+      version: "v11.0",
+    });
+  };
+
   (function (d, s, id) {
     var js,
       fjs = d.getElementsByTagName(s)[0];
@@ -13,29 +24,20 @@ function loadScript() {
   })(document, "script", "facebook-jssdk");
 }
 
-function init() {
-  var chatbox = document.getElementById("fb-customer-chat");
-  chatbox.setAttribute("page_id", "1011747472244365");
-  chatbox.setAttribute("attribution", "biz_inbox");
-
-  // window.fbAsyncInit = function () {
-  FB.init({
-    xfbml: true,
-    version: "v11.0",
-  });
-  // };
+function reload() {  
+  FB.XFBML.parse();
 }
 
 export function Facebook1() {
   useEffect(() => {
     console.log("Facebook1")
-    loadScript();
+    init();
     var interval = window.setInterval(() => {
       console.log("Facebook1 interval")
       if (window.FB) {
         window.clearInterval(interval);
         interval = null;
-        init();
+        reload();
       }
     }, 500);
   }, []);
